@@ -14,6 +14,7 @@ let gameOver = false;
 let intervallId = null; // ???? 
 let score = 0; 
 let level = 1; 
+let levelup = 15;
 // Ball-Variablen:
 let ballX = 100, ballY = 50, ballRadius = 20, speedX = 8, speedY = 6; 
 // Brett-Variablen
@@ -67,9 +68,10 @@ function animate() {
         brettPositionX = brettPositionX - brettSpeed;         
     }
 
-    /* 
-    if (score % 10 == 0 && score > 0 ) {
+    
+    if (score % levelup == 0 && score > 0) {
         level++; 
+        levelup = levelup + 10; 
         if (speedX > 0) {
             speedX = speedX + 2; 
         }
@@ -83,7 +85,7 @@ function animate() {
             speedY = speedY - 2; 
         }
     }
-    */
+    
 
     // Bitte geh nicht aus dem Canvas raus - außer unten: 
     // rechter Rand
@@ -194,6 +196,7 @@ window.addEventListener('load', () => {
         ballX = 50; 
         ballY = 40; 
         level = 0; 
+        levelup = 10;
         score = 0; 
         start();
         
